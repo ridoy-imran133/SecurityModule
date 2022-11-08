@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ namespace SecurityModule.Entities
     public class Module
     {
         public string ProjectCode { get; set; }
+        [Key]
         public string ModuleCode { get; set; }
         public string ModuleName { get; set; }
         public string Description { get; set; }

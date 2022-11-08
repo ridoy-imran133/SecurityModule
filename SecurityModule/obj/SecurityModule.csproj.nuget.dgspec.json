@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Application\\.net application\\Security\\SecurityModule\\SecurityModule.csproj": {}
+    "D:\\Application\\.net application\\SecurityModule\\SecurityModule\\SecurityModule.csproj": {}
   },
   "projects": {
-    "D:\\Application\\.net application\\Security\\SecurityModule\\SecurityModule.csproj": {
+    "D:\\Application\\.net application\\SecurityModule\\SecurityModule\\SecurityModule.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Application\\.net application\\Security\\SecurityModule\\SecurityModule.csproj",
+        "projectUniqueName": "D:\\Application\\.net application\\SecurityModule\\SecurityModule\\SecurityModule.csproj",
         "projectName": "SecurityModule",
-        "projectPath": "D:\\Application\\.net application\\Security\\SecurityModule\\SecurityModule.csproj",
+        "projectPath": "D:\\Application\\.net application\\SecurityModule\\SecurityModule\\SecurityModule.csproj",
         "packagesPath": "C:\\Users\\Hp\\.nuget\\packages\\",
-        "outputPath": "D:\\Application\\.net application\\Security\\SecurityModule\\obj\\",
+        "outputPath": "D:\\Application\\.net application\\SecurityModule\\SecurityModule\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,9 +40,9 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
-            "AutoMapper": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
-              "version": "[12.0.0, )"
+              "version": "[7.0.0, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
@@ -55,6 +55,10 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[3.1.29, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.4.0, )"
             }
           },
           "imports": [

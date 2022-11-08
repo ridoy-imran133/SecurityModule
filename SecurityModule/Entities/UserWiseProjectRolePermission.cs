@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace SecurityModule.Entities
 {
-    [Table("UserWiseRolePermission")]
-    public class UserWiseRolePermission
+    [Table("UserWiseProjectRolePermission")]
+    public class UserWiseProjectRolePermission
     {
         public string RoleCode { get; set; }
+        public string ProjectCode { get; set; }
         public string RegistrationId { get; set; }
         public string IsActive { get; set; }
         public string IsDelete { get; set; }

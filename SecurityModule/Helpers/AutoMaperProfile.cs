@@ -12,15 +12,21 @@ namespace SecurityModule.Helpers
     {
         public AutoMaperProfile()
         {
-            CreateMap<Module, ModuleModel>();
             CreateMap<Project, ProjectModel>();
-            CreateMap<Role, RoleModel>();
-            CreateMap<RoleWiseScreenPermission, RoleWiseScreenPermissionModel>();
+            CreateMap<ProjectModel, Project>();
+            CreateMap<Module, ModuleModel>();
+            CreateMap<ModuleModel, Module>();
             CreateMap<Screen, ScreenModel>();
+            CreateMap<ScreenModel, Screen>();
+            CreateMap<Role, RoleModel>();
+            CreateMap<RoleModel, Role>();
+            CreateMap<RoleWiseScreenPermission, RoleWiseScreenPermissionModel>();            
             CreateMap<UserLogin, UserLoginModel>();
             CreateMap<UserRegistration, UserRegistrationModel>();
+            CreateMap<UserRegistration, UserLoggedInDetailsModel>();
+            CreateMap<UserRegistrationModel, UserRegistration>();            
             CreateMap<UserWiseProjectPermission, UserWiseProjectPermissionModel>();
-            CreateMap<UserWiseRolePermission, UserWiseRolePermissionModel>();
+            CreateMap<UserWiseProjectRolePermission, UserWiseProjectRolePermissionModel>();
         }
     }
 }

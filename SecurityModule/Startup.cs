@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
@@ -10,7 +11,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using SecurityModule.Helpers;
+using SecurityModule.Repository.Implementation;
+using SecurityModule.Repository.Interface;
+using SecurityModule.Services.Implementation;
+using SecurityModule.Services.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,6 +43,7 @@ namespace SecurityModule
 
             services.AddMvc()
                     .AddControllersAsServices();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
@@ -49,6 +56,25 @@ namespace SecurityModule
                         ValidateAudience = false
                     };
                 });
+
+            services.AddSwaggerGen();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "Implement Swagger UI",
+                    Description = "A simple example to Implement Swagger UI",
+                });
+            });
+            //services
+            services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<ISetupService, SetupService>();
+
+            //Repository
+            services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<ISetupRepository, SetupRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -87,6 +113,11 @@ namespace SecurityModule
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapDefaultControllerRoute();
+            });
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c => {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Showing API V1");
             });
         }
     }

@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 
 namespace SecurityModule.Models
 {
-    public class UserWiseRolePermissionModel
+    public class UserWiseProjectRolePermissionModel
     {
         public string RoleCode { get; set; }
+        public string ProjectCode { get; set; }
         public string RegistrationId { get; set; }
     }
 }

@@ -23,15 +23,16 @@ namespace SecurityModule.Helpers
 
         public SecurityDBContext(DbContextOptions<SecurityDBContext> options)
             : base(options){ }
+        public virtual DbSet<Screen> Screens { get; set; }
         public virtual DbSet<Module> Module { get; set; }
         public virtual DbSet<Project> Project { get; set; }
         public virtual DbSet<Role> Role { get; set; }
-        public virtual DbSet<RoleWiseScreenPermission> RoleWiseScreenPermission { get; set; }
-        public virtual DbSet<Screen> Screen { get; set; }
+        //public virtual DbSet<RoleWiseScreenPermission> RoleWiseScreenPermission { get; set; }
+        //public virtual DbSet<Screen> Screen { get; set; }
         public virtual DbSet<UserLogin> UserLogin { get; set; }
         public virtual DbSet<UserRegistration> UserRegistration { get; set; }
-        public virtual DbSet<UserWiseProjectPermission> UserWiseProjectPermission { get; set; }
-        public virtual DbSet<UserWiseRolePermission> UserWiseRolePermission { get; set; }
+        //public virtual DbSet<UserWiseProjectPermission> UserWiseProjectPermission { get; set; }
+        //public virtual DbSet<UserWiseRolePermission> UserWiseRolePermission { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
