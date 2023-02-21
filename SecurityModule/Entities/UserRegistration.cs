@@ -17,6 +17,7 @@ namespace SecurityModule.Entities
         public string Email { get; set; }
         public string Address { get; set; }
         public string Gender { get; set; }
+        public string UserName { get; set; }
         public DateTime? DateOfBirth { get; set; }
         public string IsActive { get; set; }
         public string IsDelete { get; set; }

@@ -18,7 +18,9 @@ namespace SecurityModule.Entities
         public string Description { get; set; }
         public string URL { get; set; }
         public string Icon { get; set; }
+        public string ParentsCode { get; set; }        
         public string ScDescription { get; set; }
+        public string Sequence { get; set; }
         public string IsActive { get; set; }
         public string IsDelete { get; set; }
         public string CreatedBy { get; set; }

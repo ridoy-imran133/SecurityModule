@@ -70,10 +70,12 @@ namespace SecurityModule
             //services
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<ISetupService, SetupService>();
+            services.AddScoped<IConfigService, ConfigService>();
 
             //Repository
             services.AddScoped<IAuthRepository, AuthRepository>();
-            services.AddScoped<ISetupRepository, SetupRepository>();
+            services.AddScoped<ISetupRepository, SetupRepository>(); 
+            services.AddScoped<IConfigRepository, ConfigRepository>();
 
         }
 

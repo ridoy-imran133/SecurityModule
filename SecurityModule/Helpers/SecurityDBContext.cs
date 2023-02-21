@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using SecurityModule.Entities;
 using SecurityModule.Models;
@@ -27,13 +28,18 @@ namespace SecurityModule.Helpers
         public virtual DbSet<Module> Module { get; set; }
         public virtual DbSet<Project> Project { get; set; }
         public virtual DbSet<Role> Role { get; set; }
-        //public virtual DbSet<RoleWiseScreenPermission> RoleWiseScreenPermission { get; set; }
+        public virtual DbSet<RoleWiseScreenPermission> RoleWiseScreenPermission { get; set; }
         //public virtual DbSet<Screen> Screen { get; set; }
         public virtual DbSet<UserLogin> UserLogin { get; set; }
         public virtual DbSet<UserRegistration> UserRegistration { get; set; }
         //public virtual DbSet<UserWiseProjectPermission> UserWiseProjectPermission { get; set; }
-        //public virtual DbSet<UserWiseRolePermission> UserWiseRolePermission { get; set; }
-
+        public virtual DbSet<UserWiseProjectRolePermission> UserWiseProjectRolePermission { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<RoleWiseScreenPermission>().HasNoKey();
+            modelBuilder.Entity<UserWiseProjectPermission>().HasNoKey();
+            modelBuilder.Entity<UserWiseProjectRolePermission>().HasNoKey();
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             IConfigurationRoot configuration = new ConfigurationBuilder().SetBasePath(AppDomain.CurrentDomain.BaseDirectory).AddJsonFile("appsettings.json").Build();
