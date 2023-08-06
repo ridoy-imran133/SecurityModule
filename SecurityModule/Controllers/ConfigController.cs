@@ -22,7 +22,7 @@ namespace SecurityModule.Controllers
 
         [HttpGet]
         [Route("getMenu")]
-        public async Task<IActionResult> GetSummary(string username)
+        public async Task<IActionResult> GetAllMenus(string username)
         {
             var menus = await _IConfigService.UserWiseProjectMenuPermission(username);
             return Ok(new

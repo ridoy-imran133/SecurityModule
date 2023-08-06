@@ -16,9 +16,11 @@ namespace SecurityModule.Controllers
     public class UserController : ControllerBase
     {
         private readonly IAuthService _IAuthService;
-        public UserController(IAuthService authService)
+        private readonly IUserService _IUserService;
+        public UserController(IAuthService authService, IUserService userService)
         {
             _IAuthService = authService;
+            _IUserService = userService;
         }
 
         [HttpGet]
@@ -26,6 +28,17 @@ namespace SecurityModule.Controllers
         public ApiResponseModel ExistUserName(string pUserName)
         {
             return _IAuthService.ExistUserName(pUserName);
+        }
+
+        [HttpGet]
+        [Route("UserProfile")]
+        public IActionResult GetUserProfile(string pUserName)
+        {
+            var profile = _IUserService.GetUserProfile(pUserName);
+            return Ok(new
+            {
+                profile = profile
+            });
         }
 
         //Refresh Token Controller

@@ -27,6 +27,8 @@ namespace SecurityModule.Helpers
             CreateMap<UserRegistrationModel, UserRegistration>();            
             CreateMap<UserWiseProjectPermission, UserWiseProjectPermissionModel>();
             CreateMap<UserWiseProjectRolePermission, UserWiseProjectRolePermissionModel>();
+            CreateMap<UserProfileModel, UserRegistration>();
+            CreateMap<UserRegistration, UserProfileModel>();
         }
     }
 }
