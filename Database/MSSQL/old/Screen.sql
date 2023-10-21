@@ -3,6 +3,7 @@ CREATE TABLE [Screen](
 		"ModuleCode" [nvarchar](16) NOT NULL,
 		"ScreenCode" [nvarchar](16) NOT NULL,
 		"ScreenName" [nvarchar](128) NOT NULL,
+		"Description" [nvarchar](512) NULL,
 		"URL" [nvarchar](512) NULL,
 		"Icon" [nvarchar](512) NULL,
 		"Description" [nvarchar](512) NULL,
