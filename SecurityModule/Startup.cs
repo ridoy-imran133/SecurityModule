@@ -15,6 +15,7 @@ using Microsoft.OpenApi.Models;
 using SecurityModule.Helpers;
 using SecurityModule.Repository.Implementation;
 using SecurityModule.Repository.Interface;
+using SecurityModule.Services;
 using SecurityModule.Services.Implementation;
 using SecurityModule.Services.Interface;
 using System;
@@ -77,7 +78,11 @@ namespace SecurityModule
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<ISetupRepository, SetupRepository>(); 
             services.AddScoped<IConfigRepository, ConfigRepository>();
-            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserRepository, UserRepository>(); 
+
+            services.AddScoped<IEmployeeService, EmployeeService>(); 
+            services.AddScoped<IRoleService, RoleService>();
+
 
         }
 

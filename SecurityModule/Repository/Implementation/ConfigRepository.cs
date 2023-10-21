@@ -11,16 +11,24 @@ namespace SecurityModule.Repository.Implementation
 {
     public class ConfigRepository : IConfigRepository
     {
-        public async Task<ApiResponseModel> UserWiseProjectMenuPermission(string username, SecurityDBContext pContext)
+        public async Task<ApiResponseModel> UserWiseProjectMenuPermission(string username, bool isEmployee, SecurityDBContext pContext)
         {
             ApiResponseModel apiResponse = new ApiResponseModel();
             using (var transaction = pContext.Database.BeginTransaction())
             {
                 try
                 {
-                    UserRegistration registration = pContext.UserRegistration.Where(x => x.UserName == username).FirstOrDefault();
-                    UserWiseProjectRolePermission userWiseProjectRole = pContext.UserWiseProjectRolePermission.Where(x => x.RegistrationId == registration.Id).FirstOrDefault();
-                    //List<RoleWiseScreenPermission> roleWiseScreen = pContext.RoleWiseScreenPermission.Where(x => x.ProjectCode == userWiseProjectRole.ProjectCode && x.RoleCode == userWiseProjectRole.RoleCode).ToList();
+                    UserWiseProjectRolePermission userWiseProjectRole;
+                    if (isEmployee)
+                    {
+                        EmployeeRegistration employee = pContext.EmployeeRegistration.Where(x => x.UserName == username).FirstOrDefault();
+                        userWiseProjectRole = pContext.UserWiseProjectRolePermission.Where(x => x.EmpRegId == employee.Id).FirstOrDefault();
+                    }
+                    else
+                    {
+                        UserRegistration registration = pContext.UserRegistration.Where(x => x.UserName == username).FirstOrDefault();
+                        userWiseProjectRole = pContext.UserWiseProjectRolePermission.Where(x => x.RegistrationId == registration.Id).FirstOrDefault();
+                    }
                     List<MenuModel> menus = (from rp in pContext.RoleWiseScreenPermission
                                join r in pContext.Role on rp.RoleCode equals r.RoleCode
                                join sc in pContext.Screens on rp.ScreenCode equals sc.ScreenCode

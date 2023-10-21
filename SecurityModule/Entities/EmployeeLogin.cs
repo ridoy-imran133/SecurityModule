@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace SecurityModule.Entities
 {
-    [Table("UserWiseProjectRolePermission")]
-    public class UserWiseProjectRolePermission
+    [Table("EmployeeLogin", Schema = "Employee")]
+    public class EmployeeLogin
     {
         [Key]
-        public string Id { get; set; }
-        public string RoleCode { get; set; }
-        public string ProjectCode { get; set; }
-        public string RegistrationId { get; set; }
-        public int? EmpRegId { get; set; }
+        public int Id { get; set; }
+        public string Username { get; set; }
+        public byte[] PasswordHash { get; set; }
+        public byte[] PasswordSalt { get; set; }
+        public int EmpRegId { get; set; }
         public string IsActive { get; set; }
         public string IsDelete { get; set; }
         public string CreatedBy { get; set; }

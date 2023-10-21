@@ -35,10 +35,10 @@ namespace SecurityModule.Controllers
         }
 
         [HttpPost]
-        [Route("UserLogin")]
-        public ApiResponseModel UserLogin(LoginModel loginModel)
+        [Route("Login")]
+        public ApiResponseModel Login(LoginModel loginModel)
         {
-            return _IAuthService.UserLoginCredentialCheck(loginModel.username, loginModel.password);
+            return _IAuthService.UserLoginCredentialCheck(loginModel.username, loginModel.password, loginModel.isEmployee);
         }
     }
 }

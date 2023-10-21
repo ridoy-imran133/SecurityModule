@@ -9,5 +9,6 @@ namespace SecurityModule.Models
     {
         public string RoleCode { get; set; }
         public string RoleName { get; set; }
+        public string ProjectCode { get; set; }
     }
 }

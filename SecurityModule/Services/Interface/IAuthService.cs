@@ -10,6 +10,6 @@ namespace SecurityModule.Services.Interface
     {
         ApiResponseModel ExistUserName(string pUserName);
         Task<ApiResponseModel> Registration(UserRegistrationModel pUserRegistrationModel);
-        ApiResponseModel UserLoginCredentialCheck(string pUserName, string pPass);
+        ApiResponseModel UserLoginCredentialCheck(string pUserName, string pPass, bool isEmployee);
     }
 }

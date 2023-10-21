@@ -9,6 +9,6 @@ namespace SecurityModule.Repository.Interface
 {
     public interface IConfigRepository
     {
-        Task<ApiResponseModel> UserWiseProjectMenuPermission(string username, SecurityDBContext pContext);
+        Task<ApiResponseModel> UserWiseProjectMenuPermission(string username, bool isEmployee, SecurityDBContext pContext);
     }
 }

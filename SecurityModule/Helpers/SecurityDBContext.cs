@@ -32,13 +32,23 @@ namespace SecurityModule.Helpers
         //public virtual DbSet<Screen> Screen { get; set; }
         public virtual DbSet<UserLogin> UserLogin { get; set; }
         public virtual DbSet<UserRegistration> UserRegistration { get; set; }
+
+        public virtual DbSet<EmployeeLogin> EmployeeLogin { get; set; }
+        public virtual DbSet<EmployeeRegistration> EmployeeRegistration { get; set; }
+
         //public virtual DbSet<UserWiseProjectPermission> UserWiseProjectPermission { get; set; }
         public virtual DbSet<UserWiseProjectRolePermission> UserWiseProjectRolePermission { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<RoleWiseScreenPermission>().HasNoKey();
             modelBuilder.Entity<UserWiseProjectPermission>().HasNoKey();
-            modelBuilder.Entity<UserWiseProjectRolePermission>().HasNoKey();
+            //modelBuilder.Entity<UserWiseProjectRolePermission>().HasNoKey();
+
+            //modelBuilder
+            //.Entity<UserWiseProjectRolePermission>(eb =>
+            //{
+            //    eb.HasNoKey();
+            //});
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

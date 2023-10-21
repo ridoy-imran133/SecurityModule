@@ -87,7 +87,7 @@ namespace SecurityModule.Services.Implementation
 
 
 
-        public ApiResponseModel UserLoginCredentialCheck(string pUserName, string pPass)
+        public ApiResponseModel UserLoginCredentialCheck(string pUserName, string pPass, bool isEmployee)
         {
             ApiResponseModel apiResponse = new ApiResponseModel();
             dynamic loginInfo = new ExpandoObject();
@@ -95,10 +95,21 @@ namespace SecurityModule.Services.Implementation
             {
                 try
                 {
-                    UserLogin userLogin = _IAuthRepository.GetUseLoginInformation(pUserName, _context);
-                    if(userLogin != null)
+                    LoginModel login = new LoginModel();
+                    if (isEmployee)
                     {
-                        string token = this.commonService.VerifyPasswordHash(pPass, userLogin.PasswordHash, userLogin.PasswordSalt) ? tokenGenerate(pUserName) : null;
+                        EmployeeLogin employeeLogin = _IAuthRepository.GetEmployeeLoginInformation(pUserName, _context);
+                        login = _IMapper.Map<LoginModel>(employeeLogin);
+                    }
+                    else
+                    {
+                        UserLogin userLogin = _IAuthRepository.GetUseLoginInformation(pUserName, _context);
+                        login = _IMapper.Map<LoginModel>(userLogin);
+                    }
+                    
+                    if(login != null)
+                    {
+                        string token = this.commonService.VerifyPasswordHash(pPass, login.PasswordHash, login.PasswordSalt) ? tokenGenerate(pUserName) : null;
                         if(token == null)
                         {
                             apiResponse.ResponseCode = StaticValue.NonAuthoritativeInformation;

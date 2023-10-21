@@ -60,5 +60,10 @@ namespace SecurityModule.Repository.Implementation
         {
             return pContext.UserLogin.Where(x => x.Username == pUserName).FirstOrDefault();
         }
+
+        public EmployeeLogin GetEmployeeLoginInformation(string pUserName, SecurityDBContext pContext)
+        {
+            return pContext.EmployeeLogin.Where(x => x.Username == pUserName).FirstOrDefault();
+        }
     }
 }

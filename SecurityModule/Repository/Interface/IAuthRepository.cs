@@ -13,5 +13,6 @@ namespace SecurityModule.Repository.Interface
         bool CheckUserName(string pUserName, SecurityDBContext pContext);
         Task<ApiResponseModel> Registration(UserRegistration pUserRegistration, UserLogin pUserLogin, SecurityDBContext pContext);
         UserLogin GetUseLoginInformation(string pUserName, SecurityDBContext pContext);
+        EmployeeLogin GetEmployeeLoginInformation(string pUserName, SecurityDBContext pContext);
     }
 }

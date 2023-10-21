@@ -8,6 +8,6 @@ namespace SecurityModule.Services.Interface
 {
     public interface IConfigService
     {
-        Task<ApiResponseModel> UserWiseProjectMenuPermission(string username);
+        Task<ApiResponseModel> UserWiseProjectMenuPermission(string username, bool isEmployee = false);
     }
 }

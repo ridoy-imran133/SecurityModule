@@ -21,7 +21,7 @@ namespace SecurityModule.Services.Implementation
             _IMapper = iMapper;
         }
 
-        public async Task<ApiResponseModel> UserWiseProjectMenuPermission(string username)
+        public async Task<ApiResponseModel> UserWiseProjectMenuPermission(string username, bool isEmployee = false)
         {
             ApiResponseModel apiResponse = new ApiResponseModel();
             //Project project = _IMapper.Map<Project>(pProject);
@@ -29,7 +29,7 @@ namespace SecurityModule.Services.Implementation
             {
                 using (var _context = new SecurityDBContext())
                 {
-                    apiResponse = await _IConfigRepository.UserWiseProjectMenuPermission(username, _context);
+                    apiResponse = await _IConfigRepository.UserWiseProjectMenuPermission(username, isEmployee, _context);
                 }
             }
             catch (Exception ex)
