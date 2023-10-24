@@ -15,7 +15,6 @@ namespace SecurityModule.Entities
         [Key]
         public string ScreenCode { get; set; }
         public string ScreenName { get; set; }
-        public string Description { get; set; }
         public string URL { get; set; }
         public string Icon { get; set; }
         public string ParentsCode { get; set; }        

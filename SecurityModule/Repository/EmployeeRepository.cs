@@ -41,7 +41,7 @@ namespace SecurityModule.Repository
                         await pContext.AddAsync(userWiseRole);
                         await pContext.SaveChangesAsync();
 
-                        if (employee.HasSystemAccess)
+                        if (employee.HasSystemAccess == "Y")
                         {
                             login.Id = new SequenceValueGenerator(SequenceName.EmployeeLogin_seq).Next();
                             login.EmpRegId = employee.Id;

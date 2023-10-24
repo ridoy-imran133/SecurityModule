@@ -21,7 +21,7 @@ namespace SecurityModule.Entities
         public string ECName { get; set; }
         public string ECPhoneNumber { get; set; }
         public string MaritalStatus { get; set; }
-        public bool HasSystemAccess { get; set; }
+        public string HasSystemAccess { get; set; }
         public DateTime? DateOfBirth { get; set; }
         public string IsActive { get; set; }
         public string IsDelete { get; set; }

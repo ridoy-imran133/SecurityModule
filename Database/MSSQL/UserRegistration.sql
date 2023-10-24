@@ -1,8 +1,9 @@
-CREATE TABLE [UserRegistration](
+  CREATE TABLE [UserRegistration](
 		"Id" [nvarchar](128) NOT NULL,
 		"FullName" [nvarchar](450) NOT NULL,
 		"PhoneNumber" [nvarchar](32) NOT NULL,
 		"Email" [nvarchar](256) NOT NULL,
+		"UserName" [nvarchar](256) NOT NULL,
 		"Address" [nvarchar](450) NOT NULL,
 		"Gender" [nvarchar](16) NULL,
 		"DateOfBirth" DATETIME NULL,
@@ -13,4 +14,4 @@ CREATE TABLE [UserRegistration](
 		"ModifiedBy" [nvarchar](64) NULL,
 		"ModifiedDate" DATETIME NULL,
 		CONSTRAINT PK_USERREGISTRATION PRIMARY KEY ("Id")
-)
+);

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace SecurityModule.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("[controller]")]
     [ApiController]
     public class EmployeeController : ControllerBase
